@@ -1,149 +1,338 @@
-<!-- index.html --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M18 / M12 Battery Repair</title>
+  <title>M18 / M12 Battery Repair | Batteries.mixtacy.com</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @keyframes pulse-red {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(220, 38, 38, 1)) brightness(1.2); }
+    }
+    .flash-red {
+      animation: pulse-red 1s infinite ease-in-out;
+    }
+    .pricing-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    .service-card {
+      @apply bg-gray-900 p-6 rounded-2xl shadow-xl border border-gray-800 transition-all;
+    }
+    .service-card:hover {
+      @apply border-red-900/50;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">  <!-- HERO -->  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">M18 & M12 Battery Repair</h1>
-    <p class="text-lg md:text-xl text-gray-300 max-w-xl mb-6">
-      Dead battery? Flashing red light? No response at all?
-      I bring Milwaukee packs back to life for a fraction of replacement cost.
-    </p>
-    <p class="text-sm text-gray-400 mb-6">Most repairs done same-day or within 24 hours</p>
-    <a href="#pricing" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-2xl text-lg shadow-lg">View Pricing</a>
-  </section>  <!-- SERVICES -->  <section class="py-16 px-6 bg-gray-800">
-    <h2 class="text-3xl font-bold text-center mb-10">What I Fix</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <div class="bg-gray-900 p-6 rounded-2xl shadow">
+<body class="bg-gray-950 text-gray-100 font-sans selection:bg-red-500/30">
 
-<div class="battery">
-  <img id="battery" src="copilot_image_1775698960094.jpeg" alt="M18 battery animation">
-</div>
-
-<style>
-.battery {
-  width: 300px; /* adjust to half your image width */
-  height: 200px; /* adjust to image height */
-  background: url('copilot_image_1775698960094.jpeg') left center no-repeat;
-  background-size: cover;
-  animation: blink 2s infinite;
-}
-
-@keyframes blink {
-  0%, 50% { background-position: left center; }   /* LED ON frame */
-  51%, 100% { background-position: right center; } /* LED OFF frame */
-}
-</style>
-
-<script>
-const battery = document.querySelector('.battery');
-setInterval(() => {
-  battery.style.backgroundPosition =
-    battery.style.backgroundPosition === 'left center'
-      ? 'right center'
-      : 'left center';
-}, 800); // blink speed in ms
-</script>
-        <h3 class="text-xl font-semibold mb-2">Flashing Red LED</h3>
-        <p class="text-gray-400">Battery detected but won’t charge. Typically imbalance or weak cells. Fully repairable.</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-semibold mb-2">No Lights / Dead Pack</h3>
-        <p class="text-gray-400">Completely unresponsive packs restored with proper diagnostics and repair.</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-semibold mb-2">Full Rebuilds</h3>
-        <p class="text-gray-400">All cells replaced for maximum runtime and reliability.</p>
+  <!-- NAVIGATION (Simple) -->
+  <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-xl font-bold text-red-600 tracking-tight">Batteries<span class="text-white">.mixtacy.com</span></span>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+        <a href="#services" class="hover:text-white transition">Services</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#trade-in" class="hover:text-white transition">Trade-In</a>
+        <a href="#request" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Get Started</a>
       </div>
     </div>
-  </section>  <!-- CELL OPTIONS -->  <section class="py-16 px-6">
-    <h2 class="text-3xl font-bold text-center mb-10">Cell Options</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <div class="bg-gray-800 p-6 rounded-2xl">
-        <h3 class="text-xl font-semibold mb-2">Budget Cells</h3>
-        <p class="text-gray-400">Lower cost option using tested cells. Good for light use and saving money.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-2xl">
-        <h3 class="text-xl font-semibold mb-2">Premium Cells</h3>
-        <p class="text-gray-400">High-quality brand new cells. Stronger output, longer lifespan, best performance.</p>
-      </div>
-    </div><div class="max-w-3xl mx-auto mt-8 text-center text-gray-300">
-  <p>
-    Reusing old cells is possible, but not recommended. Packs with mixed or worn cells may only charge to 2–3 bars before the charger stops.
-  </p>
-  <p class="mt-2">
-    For full capacity and reliability, replacing all cells with new ones is strongly recommended.
-  </p>
-</div>
+  </nav>
 
-  </section>  <!-- PRICING -->  <section id="pricing" class="py-16 px-6 bg-gray-800">
-    <h2 class="text-3xl font-bold text-center mb-10">Pricing</h2>
-    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      <div class="bg-gray-900 p-6 rounded-2xl text-center">
-        <h3 class="text-xl font-semibold mb-2">Quick Fix</h3>
-        <p class="text-2xl font-bold mb-2">$25</p>
-        <p class="text-gray-400">Reset, balancing, minor repair</p>
+  <!-- HERO -->
+  <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_120%,#450a0a,transparent_50%)]"></div>
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+        M18 & M12 Battery <span class="text-red-600">Repair</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10">
+        Don't throw away your dead Milwaukee packs. I bring them back to life for a fraction of the cost.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#pricing" class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-red-900/20 transition-all active:scale-95">
+          View Pricing & Save
+        </a>
+        <a href="tel:5034067900" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all border border-gray-700">
+          <i class="fas fa-phone mr-2"></i> Call / Text
+        </a>
       </div>
-      <div class="bg-gray-900 p-6 rounded-2xl text-center">
-        <h3 class="text-xl font-semibold mb-2">Partial Repair</h3>
-        <p class="text-2xl font-bold mb-2">$50–$70</p>
-        <p class="text-gray-400">Replace weak cell groups</p>
+      <p class="mt-8 text-sm text-gray-500 font-medium uppercase tracking-widest">
+        Most repairs done within 24 hours • Local Portland Service
+      </p>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-24 px-6 bg-gray-900/50">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">What I Fix</h2>
+      <p class="text-gray-400">Common issues solved with professional diagnostics and high-quality cells.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Flashing Red -->
+      <div class="service-card group">
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-gray-800">
+          <img src="copilot_image_1775698960094.jpeg" alt="M18 Battery" class="w-full h-full object-cover opacity-80 flash-red">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 flex items-center space-x-2">
+            <div class="w-3 h-3 bg-red-600 rounded-full animate-ping"></div>
+            <span class="text-xs font-bold uppercase tracking-wider text-red-500">Blinking Red Light</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Flashing Red LED</h3>
+        <p class="text-gray-400 leading-relaxed">
+          Battery detected but won’t charge. This is usually due to cell imbalance or a single weak cell. I reset the board and balance the cells to make it like new.
+        </p>
       </div>
-      <div class="bg-gray-900 p-6 rounded-2xl text-center">
-        <h3 class="text-xl font-semibold mb-2">Full Rebuild</h3>
-        <p class="text-2xl font-bold mb-2">$80–$120</p>
-        <p class="text-gray-400">All cells replaced</p>
+
+      <!-- No Lights -->
+      <div class="service-card">
+        <div class="flex items-center justify-center h-48 bg-gray-800 rounded-xl mb-6 border border-gray-700">
+          <i class="fas fa-battery-empty text-5xl text-gray-600"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">No Lights / Dead</h3>
+        <p class="text-gray-400 leading-relaxed">
+          Completely unresponsive packs that refuse to wake up. I perform deep diagnostics to find the break and restore functionality safely.
+        </p>
       </div>
-      <div class="bg-gray-900 p-6 rounded-2xl text-center">
-        <h3 class="text-xl font-semibold mb-2">High Capacity</h3>
-        <p class="text-2xl font-bold mb-2">$120+</p>
-        <p class="text-gray-400">6.0Ah and above</p>
+
+      <!-- Full Rebuilds -->
+      <div class="service-card">
+        <div class="flex items-center justify-center h-48 bg-gray-800 rounded-xl mb-6 border border-gray-700">
+          <i class="fas fa-bolt text-5xl text-red-600"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Performance Rebuilds</h3>
+        <p class="text-gray-400 leading-relaxed">
+          Full cell replacement using high-discharge premium cells. Get better runtime and power than the original pack at a lower price point.
+        </p>
       </div>
     </div>
-  </section>  <!-- TRADE / CREDIT -->  <section class="py-16 px-6">
-    <h2 class="text-3xl font-bold text-center mb-10">Battery Trade-In & Credit</h2>
-    <div class="max-w-3xl mx-auto text-center text-gray-300 space-y-4">
-      <p>Bring in your dead or unwanted packs and get credit toward repairs or rebuilds.</p>
-      <p class="text-white font-semibold">Typical Credit: $5–$20 per pack (based on condition)</p>
-      <p class="text-gray-400">Stack credits or apply instantly to your repair.</p>
+  </section>
+
+  <!-- CELL OPTIONS -->
+  <section class="py-24 px-6 border-y border-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Choose Your Cells</h2>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-gray-700 transition">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="p-3 bg-gray-800 rounded-2xl text-gray-400">
+              <i class="fas fa-recycle text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Tested Grade A Cells</h3>
+          </div>
+          <p class="text-gray-400">Cost-effective repair using verified, high-quality cells salvaged from healthy donor packs. Great for light to medium duty use.</p>
+        </div>
+        
+        <div class="bg-gray-900 p-8 rounded-3xl border border-red-900/30 hover:border-red-600/50 transition">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="p-3 bg-red-900/20 rounded-2xl text-red-500">
+              <i class="fas fa-certificate text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Premium New Cells</h3>
+          </div>
+          <p class="text-gray-400">Brand new high-discharge cells (Samsung, Sony, or LG). Maximum power output, longest lifespan, and best thermal performance.</p>
+        </div>
+      </div>
+      
+      <div class="bg-gray-900/50 p-8 rounded-3xl border border-dashed border-gray-800 text-center">
+        <p class="text-gray-300 italic mb-4">
+          "Can you just reuse my old cells?"
+        </p>
+        <p class="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
+          Technically possible, but not recommended. Mixed or worn cells often lead to the charger stopping at 2-3 bars. For full capacity and safety, cell replacement is always the best path.
+        </p>
+      </div>
     </div>
-  </section>  <!-- FORM -->  <section class="py-16 px-6 bg-gray-800">
-    <h2 class="text-3xl font-bold text-center mb-10">Request a Repair</h2><!-- FormSubmit handles email without backend -->
-<form action="https://formsubmit.co/mixtacyrecords@gmail.com" method="POST" class="max-w-2xl mx-auto space-y-4">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New Battery Repair Request">
+  </section>
 
-  <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-xl bg-gray-900 border border-gray-700">
-  <input type="tel" name="phone" placeholder="Phone Number" required class="w-full p-3 rounded-xl bg-gray-900 border border-gray-700">
-  <input type="text" name="battery" placeholder="Battery Type (M18/M12, Ah)" class="w-full p-3 rounded-xl bg-gray-900 border border-gray-700">
+  <!-- PRICING -->
+  <section id="pricing" class="py-24 px-6 bg-red-950/20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-red-600/5 blur-[120px] -z-10"></div>
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 tracking-tight">Simple, Transparent Pricing</h2>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 pricing-card">
+          <h3 class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">Maintenance</h3>
+          <p class="text-3xl font-extrabold mb-1">$25</p>
+          <p class="text-gray-300 font-medium mb-6">Quick Fix</p>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Board Reset</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Cell Balancing</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Diagnostics</li>
+          </ul>
+        </div>
 
-  <select name="issue" class="w-full p-3 rounded-xl bg-gray-900 border border-gray-700">
-    <option>Flashing Red Light</option>
-    <option>No Lights / Dead</option>
-    <option>Won't Hold Charge</option>
-    <option>Other</option>
-  </select>
+        <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 pricing-card">
+          <h3 class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">Partial Repair</h3>
+          <p class="text-3xl font-extrabold mb-1">$50<span class="text-lg text-gray-500 font-medium">+</span></p>
+          <p class="text-gray-300 font-medium mb-6">Cell Group Swap</p>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Replace Weak Cells</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Load Testing</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Tab Welding</li>
+          </ul>
+        </div>
 
-  <textarea name="details" placeholder="Describe the issue" class="w-full p-3 rounded-xl bg-gray-900 border border-gray-700"></textarea>
+        <div class="bg-red-900/10 p-8 rounded-3xl border border-red-900/50 pricing-card relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Most Popular</div>
+          <h3 class="text-red-500 font-bold uppercase tracking-widest text-xs mb-4">Full Rebuild</h3>
+          <p class="text-3xl font-extrabold mb-1">$80<span class="text-lg text-gray-500 font-medium">+</span></p>
+          <p class="text-gray-300 font-medium mb-6">Complete Overhaul</p>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><i class="fas fa-check text-red-500 mr-2"></i> All New Cells</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i> Max Capacity</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i> 90-Day Warranty</li>
+          </ul>
+        </div>
 
-  <button type="submit" class="w-full bg-green-600 hover:bg-green-700 p-3 rounded-2xl text-lg">Submit Request</button>
-</form>
+        <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 pricing-card">
+          <h3 class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">High Capacity</h3>
+          <p class="text-3xl font-extrabold mb-1">$120<span class="text-lg text-gray-500 font-medium">+</span></p>
+          <p class="text-gray-300 font-medium mb-6">6.0Ah - 12.0Ah</p>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Dual/Triple Row Swaps</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> HD Performance</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i> Custom Configs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p class="text-center text-gray-400 mt-4">You'll get a response fast with next steps.</p>
+  <!-- TRADE-IN -->
+  <section id="trade-in" class="py-24 px-6 text-center bg-gray-950">
+    <div class="max-w-3xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 p-12 rounded-[3rem] border border-gray-800">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-green-900/20 text-green-500 rounded-full mb-8">
+        <i class="fas fa-hand-holding-dollar text-4xl"></i>
+      </div>
+      <h2 class="text-4xl font-bold mb-6 tracking-tight">Trade-In & Credit</h2>
+      <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+        Don't let dead packs collect dust. Bring them in for credit toward your repairs.
+      </p>
+      <div class="inline-block bg-gray-950 px-8 py-4 rounded-2xl border border-gray-700 shadow-2xl">
+        <span class="text-3xl font-bold text-white">$5 – $20</span>
+        <span class="text-gray-500 ml-2 font-medium">Credit Per Pack</span>
+      </div>
+      <p class="mt-8 text-sm text-gray-500 italic">
+        Stack multiple credits to get a rebuild for practically free.
+      </p>
+    </div>
+  </section>
 
-  </section>  <!-- TRUST SECTION -->  <section class="py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Why Choose Me</h2>
-    <p class="text-gray-300 max-w-2xl mx-auto">
-      Hundreds of packs repaired. Every failure mode seen and solved.
-      If it’s fixable, it gets fixed.
-    </p>
-    <p class="text-gray-400 mt-4">If it can’t be repaired, you don’t pay.</p>
-  </section>  <!-- CONTACT -->  <section class="py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Or Call / Text Directly</h2>
-    <a href="tel:5034067900" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-2xl text-lg shadow-lg">Call / Text Now</a>
-  </section>  <!-- FOOTER -->  <footer class="py-6 text-center text-gray-500 text-sm">
-    batteries.mixtacy.com • Fast turnaround • Local service
-  </footer></body>
+  <!-- REQUEST FORM -->
+  <section id="request" class="py-24 px-6 bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Request a Repair</h2>
+        <p class="text-gray-400">Fill out the form below and I'll get back to you within a few hours.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-3">
+          <form action="https://formsubmit.co/mixtacyrecords@gmail.com" method="POST" class="space-y-4">
+            <!-- FormSubmit Honeypot -->
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Battery Repair Quote Request">
+            <input type="hidden" name="_next" value="https://batteries.mixtacy.com">
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Full Name</label>
+                <input type="text" name="name" required placeholder="John Doe" class="w-full p-4 rounded-2xl bg-gray-950 border border-gray-800 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition outline-none">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Phone Number</label>
+                <input type="tel" name="phone" required placeholder="(503) 555-0123" class="w-full p-4 rounded-2xl bg-gray-950 border border-gray-800 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition outline-none">
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Battery Type & Capacity</label>
+              <input type="text" name="battery" placeholder="e.g. Milwaukee M18 5.0Ah" class="w-full p-4 rounded-2xl bg-gray-950 border border-gray-800 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition outline-none">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Primary Issue</label>
+              <select name="issue" class="w-full p-4 rounded-2xl bg-gray-950 border border-gray-800 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition outline-none appearance-none">
+                <option>Flashing Red Light</option>
+                <option>No Lights / Dead Pack</option>
+                <option>Won't Hold Charge</option>
+                <option>Broken Housing / Case</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Additional Details</label>
+              <textarea name="details" rows="4" placeholder="How many batteries? Any specific symptoms?" class="w-full p-4 rounded-2xl bg-gray-950 border border-gray-800 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold p-5 rounded-2xl text-lg transition-all shadow-xl shadow-red-900/20 active:scale-[0.98]">
+              Send Repair Request
+            </button>
+          </form>
+        </div>
+
+        <div class="lg:col-span-2 space-y-8">
+          <div class="bg-gray-950 p-8 rounded-3xl border border-gray-800">
+            <h3 class="text-xl font-bold mb-4">Quick Contact</h3>
+            <div class="space-y-4">
+              <a href="tel:5034067900" class="flex items-center space-x-4 p-4 rounded-2xl bg-gray-900 border border-gray-800 hover:border-red-600 transition group">
+                <div class="w-12 h-12 bg-red-600/10 text-red-500 rounded-xl flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Call or Text</p>
+                  <p class="text-lg font-bold">(503) 406-7900</p>
+                </div>
+              </a>
+              <div class="flex items-center space-x-4 p-4 rounded-2xl bg-gray-900 border border-gray-800">
+                <div class="w-12 h-12 bg-blue-600/10 text-blue-500 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Turnaround</p>
+                  <p class="text-lg font-bold">~24 Hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-8 text-center bg-red-600/5 rounded-3xl border border-red-900/20">
+            <p class="text-sm text-gray-400 leading-relaxed italic">
+              "My mission is to keep tools out of the landfill and money in your pocket. If it's fixable, I'll get it done."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-gray-900 text-center">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-2xl font-bold text-red-600 mb-4 tracking-tighter">Batteries.mixtacy.com</div>
+      <p class="text-gray-500 text-sm mb-8">Professional Milwaukee Battery Restoration & Rebuilding</p>
+      <div class="flex justify-center space-x-6 text-gray-600 mb-8">
+        <span class="flex items-center"><i class="fas fa-tools mr-2 text-xs"></i> Expert Service</span>
+        <span class="flex items-center"><i class="fas fa-shield-alt mr-2 text-xs"></i> Quality Cells</span>
+        <span class="flex items-center"><i class="fas fa-leaf mr-2 text-xs"></i> Eco-Friendly</span>
+      </div>
+      <div class="text-xs text-gray-700 uppercase tracking-[0.2em]">
+        Portland, Oregon • &copy; 2026 Mixtacy
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
